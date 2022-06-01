@@ -80,18 +80,41 @@ void quote_bank_dump_debug(quote_bank * qb) {
   }
 }
 
+/**
+ * This function prints out a
+ * @param
+ * @return
+ */
 void print_random_quote(quote_bank * qb) {
   int rand_index = pick_random_quote(qb);
   int buffer = 0;
   size_t len = strnlen(qb->quotes[rand_index], MAX_Q_LEN);
-  if(len < MAX_LEN) {
-    buffer = (MAX_LEN - 1 - len) / 2;
-    for(int i = 0; i < buffer; i++)
-      printf(" ");
+  buffer = (MAX_LEN - 1 - len) / 2;
+  if(buffer > 0) {
+    // Boarder above
+    print_char(' ', buffer);
+    print_char('*', len);
+    printf("\n");
+    
+    // Buffer
+    print_char(' ', buffer);
     printf("%s", qb->quotes[rand_index]);
+    // Boarder below
+    print_char(' ', buffer);
+    print_char('*', len);
+    printf("\n");
   } else {
+    print_char('*', MAX_LEN - 1);
+    printf("\n");
     printf("%s", qb->quotes[rand_index]);
+    print_char('*', MAX_LEN - 1);
+    printf("\n");
   }
+}
+
+void print_char(char c, int qty) {
+  for(int i = 0; i < qty; i++)
+    printf("%c", c);
 }
 
 int pick_random_quote(quote_bank * qb) {
