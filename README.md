@@ -4,6 +4,8 @@ This project is intended to be used as a program that can print a quote and
 ascii art to the terminal. This quote and art should be stored in separate utf-8
 text files.
 
+The above quote is from the artist BUSDRIVER.
+
 # :blossom: How to Use
 Once the binary is made, it can be used by executing the binary with the first
 argument being the path to the quote text file and the second argument being the
