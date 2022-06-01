@@ -60,6 +60,18 @@ cd arterm/
 mkdir bin/
 make
 ```
+
+The way in which I use this program is to have it execute at the end of my
+bashrc.  This will cause it to execute everytime I open a new terminal (also
+with this program being relatively small and written in C the additional opening
+time is negligible, for additional reference it runs much faster than neofetch
+in my experience). So the last lines of my bashrc look like:
+```
+~/path_to/execuatble_binary path_to/quote path_to/art | lolcat -S 218
+```
+Piping the output to lolcat is not at all necessary for base funcationality of
+the program, but in my opinion it makes it look nice.
+
 Additionally, this program has been checked for memory leaks and memory errors,
 to which there are none in the program. If somehow my tests missed one please
 open a PR.
