@@ -68,7 +68,7 @@ void print_art(art * a) {
   int buffer = 0;
   for(int i = 0; i < a->h; i++) {
     len = strnlen(a->art[i], MAX_LEN);
-    buffer = (MAX_LEN - 1 - len) / 2;
+    buffer = (MAX_LEN - 2 - len) / 2;
     for(int i = 0; i < buffer; i++)
       printf(" ");
     printf("%s", a->art[i]);
