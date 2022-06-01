@@ -1,3 +1,11 @@
+/**
+ * @file quote_bank.c
+ * @brief this file contains the functions relating to the quote bank
+ * @author Matthew C. Lindeman
+ * @date May 31, 2022
+ * @bug None known
+ * @todo Nothing
+ */
 #include"include/quote_bank.h"
 
 /**
@@ -32,6 +40,7 @@ quote_bank * quote_bank_from_file(char * file_name) {
       strncpy(qb->quotes[qb->quote_no - 1], buf, len);
     } else if(strncmp(QUOTE_DELIM, buf, MAX_LEN)) {
       if(qb->quotes[qb->quote_no - 1]) {
+        // At most the max quote length, not just MAX_LEN
         len += strnlen(qb->quotes[qb->quote_no - 1], MAX_Q_LEN);
         qb->quotes[qb->quote_no - 1] = realloc(qb->quotes[qb->quote_no - 1],
             (len + 1) * sizeof(char));
@@ -60,8 +69,8 @@ quote_bank * quote_bank_from_file(char * file_name) {
 
 /**
  * This function is used for debugging purposes
- * @param
- * @return
+ * @param   qb - the quote bank to be debugged
+ * @return N/a
  */
 void quote_bank_dump_debug(quote_bank * qb) {
   for(int i = 0; i < qb->quote_no; i++) {
@@ -73,8 +82,8 @@ void quote_bank_dump_debug(quote_bank * qb) {
 
 /**
  * This function frees a quote bank
- * @param
- * @return
+ * @param   qb - the quote bank to be freed
+ * @return N/a
  */
 void free_quote_bank(quote_bank * qb) {
   if(qb) {
