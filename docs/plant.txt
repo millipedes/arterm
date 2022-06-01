@@ -1,4 +1,7 @@
 @startuml
+class main {
+}
+
 package arterm {
   class art {
      {field} + art : char **
@@ -6,6 +9,7 @@ package arterm {
      {field} + h : int
     {method} + art * init_art(void)
     {method} + art * art_from_file(char *)
+    {method} + void print_art(art *);
     {method} + void art_dump_debug(art *)
     {method} + void free_art(art *)
   }
@@ -20,12 +24,23 @@ package arterm {
     {method} + quote_bank * init_quote_bank(void)
     {method} + quote_bank * quote_bank_from_file(char *)
     {method} + void quote_bank_dump_debug(quote_bank *)
+    {method} + void print_random_quote(quote_bank *);
+    {method} + void print_char(char, int);
+    {method} + int pick_random_quote(quote_bank *);
     {method} + void free_quote_bank(quote_bank *)
   }
 
   class terminal {
+     {field} + a : art *
+     {field} + qb : quote_bank *
+    {method} + term * init_term(art *, quote_bank *);
+    {method} + term * terminal_from_files(char *, char *);
+    {method} + void print_terminal_art(term *);
+    {method} + void free_term(term *);
   }
 }
+
+main o--> terminal
 
 terminal o--> quote_bank
 terminal o--> art
