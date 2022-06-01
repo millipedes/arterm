@@ -58,6 +58,11 @@ art * art_from_file(char * file_name) {
   return a;
 }
 
+/**
+ * This function prints the user art
+ * @param    a - the art
+ * @return N/a
+ */
 void print_art(art * a) {
   size_t len = 0;
   int buffer = 0;
@@ -70,6 +75,11 @@ void print_art(art * a) {
   }
 }
 
+/**
+ * This function is used in the debugging process
+ * @param    a - the art to be debugged
+ * @return N/a
+ */
 void art_dump_debug(art * a) {
   printf("Art:\n");
   for(int i = 0; i < a->h; i++) {
@@ -78,6 +88,11 @@ void art_dump_debug(art * a) {
   printf("------------------------------\n");
 }
 
+/**
+ * This function frees an art struct
+ * @param    a - the art struct to be freed
+ * @return N/a
+ */
 void free_art(art * a) {
   if(a) {
     if(a->art) {

@@ -1,3 +1,11 @@
+/**
+ * @file main.c
+ * @brief the entry point of the code
+ * @author Matthew C. Lindeman
+ * @date June 1, 2022
+ * @bug None known
+ * @todo Nothing
+ */
 #include<stdio.h>
 #include"include/terminal.h"
 

@@ -81,8 +81,9 @@ void quote_bank_dump_debug(quote_bank * qb) {
 }
 
 /**
- * This function prints out a
- * @param
+ * This function prints out a random quote adourned with the type of border
+ * specified by the user in constants_macros.h under QUOTE_BORDER
+ * @param qb - the quote bank from which to be drawn
  * @return
  */
 void print_random_quote(quote_bank * qb) {
@@ -93,7 +94,7 @@ void print_random_quote(quote_bank * qb) {
   if(buffer > 0) {
     // Boarder above
     print_char(' ', buffer);
-    print_char('*', len);
+    print_char(QUOTE_BORDER, len);
     printf("\n");
     
     // Buffer
@@ -101,22 +102,33 @@ void print_random_quote(quote_bank * qb) {
     printf("%s", qb->quotes[rand_index]);
     // Boarder below
     print_char(' ', buffer);
-    print_char('*', len);
+    print_char(QUOTE_BORDER, len);
     printf("\n");
   } else {
-    print_char('*', MAX_LEN - 1);
+    print_char(QUOTE_BORDER, MAX_LEN - 1);
     printf("\n");
     printf("%s", qb->quotes[rand_index]);
-    print_char('*', MAX_LEN - 1);
+    print_char(QUOTE_BORDER, MAX_LEN - 1);
     printf("\n");
   }
 }
 
+/**
+ * This function prints the character 'c' qty times
+ * @param    c - the character to be repeatedly printed
+ * @param  qty - the quantity of characters to be printed
+ * @return N/a
+ */
 void print_char(char c, int qty) {
   for(int i = 0; i < qty; i++)
     printf("%c", c);
 }
 
+/**
+ * This function picks a random index for a quote to be printed
+ * @param  qb - the quote bank from which it is drawn
+ * @return .\ - the index of the random quote
+ */
 int pick_random_quote(quote_bank * qb) {
   time_t tim;
   srand((unsigned) time(&tim));

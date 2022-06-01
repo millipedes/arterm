@@ -1,3 +1,11 @@
+/**
+ * @file terminal.h
+ * @brief this file contains the function definitions for terminal.c
+ * @author Matthew C. Lindeman
+ * @date June 1, 2022
+ * @bug None known
+ * @todo Nothing
+ */
 #ifndef TER_H
 #define TER_H
 
