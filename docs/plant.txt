@@ -1,0 +1,26 @@
+@startuml
+package arterm {
+  class art {
+  }
+
+  class menus {
+  }
+
+  class quote_bank {
+     {field} + quotes : char **
+     {field} + quote_no : int
+    {method} + quote_bank * init_quote_bank(void)
+    {method} + quote_bank * quote_bank_from_file(char *)
+    {method} + void quote_bank_dump_debug(quote_bank *)
+    {method} + void free_quote_bank(quote_bank *)
+  }
+
+  class terminal {
+  }
+}
+
+terminal o--> quote_bank
+terminal o--> art
+terminal  --> menus
+
+@enduml
