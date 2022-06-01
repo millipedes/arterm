@@ -13,7 +13,17 @@ and it, as currently configured, will pick one at random to display. To do
 this, each quote needs to be separated by a delimiter. This  delimiter is be
 found and set in `src/include/constants_macros.h` under the variable
 QUOTE_DELIM. Notice that the delimiter ends with a new line character (as it is
-currently set up, delimiters need to be on their own line).
+currently set up, delimiters need to be on their own line).  As it is currently
+set up, the quotes are separated by "--\n", i.e.:
+```
+quote 1
+--
+very long
+quote 2 taking up multiuple lines
+--
+quote 3
+--
+``
 
 The art file can contain an ascii art piece of any height but MAX_LEN or fewer
 characters wide. This is so that everything can be properly centered
