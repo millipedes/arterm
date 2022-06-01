@@ -16,7 +16,7 @@ term * terminal_from_files(char * quote_bank_fn, char * art_fn) {
 
 void print_terminal_art(term * t) {
   print_art(t->a);
-  printf("%s", t->qb->quotes[pick_random_quote(t->qb)]);
+  print_random_quote(t->qb);
 }
 
 void free_term(term * t) {

@@ -80,6 +80,20 @@ void quote_bank_dump_debug(quote_bank * qb) {
   }
 }
 
+void print_random_quote(quote_bank * qb) {
+  int rand_index = pick_random_quote(qb);
+  int buffer = 0;
+  size_t len = strnlen(qb->quotes[rand_index], MAX_Q_LEN);
+  if(len < MAX_LEN) {
+    buffer = (MAX_LEN - 1 - len) / 2;
+    for(int i = 0; i < buffer; i++)
+      printf(" ");
+    printf("%s", qb->quotes[rand_index]);
+  } else {
+    printf("%s", qb->quotes[rand_index]);
+  }
+}
+
 int pick_random_quote(quote_bank * qb) {
   time_t tim;
   srand((unsigned) time(&tim));
