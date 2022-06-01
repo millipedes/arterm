@@ -34,6 +34,8 @@ requires the nul terminator on character pointers to work with `string.h`
 functions.
 
 ## :notebook_with_decorative_cover: User Customizable Features
+- The ascii art.
+- The quote bank.
 - The quote separating delimiter found and set in `src/include/constants_macros.h`
   under the constant QUOTE_DELIM (default "--\n").
 - The Centering width found and set in `src/include/constants_macros.h` under
