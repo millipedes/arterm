@@ -11,13 +11,12 @@ Once the binary is made, it can be used by executing the binary with the first
 argument being the path to the quote text file and the second argument being the
 path to the art file.
 
+## :hammer: How to Run/File Formats
 The program can read a file with multiple quotes and will pick one at random to
 display. To work with the program, each quote needs to be separated by a
-delimiter. This delimiter is be found and set in
-`src/include/constants_macros.h` under the variable QUOTE_DELIM. Notice that
-the delimiter ends with a new line character (as it is currently set up,
-delimiters need to be on their own line).  By default the quotes are separated
-by "--\n", i.e.:
+delimiter. Notice that the delimiter ends with a new line character (as it is
+currently set up, delimiters need to be on their own line even if user defined). 
+By default the quotes are separated by "--\n", i.e.:
 ```
 quote 1
 --
@@ -30,12 +29,17 @@ quote 3
 
 The art file can contain an ascii art piece of art of any height but MAX_LEN or
 fewer characters wide. This restraint is so that everything can be properly
-centered.  To change this centering width, modify the MAX_LEN in
-`src/include/constants_macros.h` (note it should be one more than the desired
-number of characters as C requires the nul terminator on character pointers).
+centered. Note it should be one more than the desired number of characters as C
+requires the nul terminator on character pointers to work with `string.h`
+functions.
 
-Finally, the character that borders the quotes can be changed as well in 
-`src/include/constants_macros.h` under the QUOTE_BORDER defined constant.
+## :notebook_with_decorative_cover: User Customizable Features
+- The quote separating delimiter found and set in `src/include/constants_macros.h`
+  under the constant QUOTE_DELIM (default "--\n").
+- The Centering width found and set in `src/include/constants_macros.h` under
+  the constant MAX_LEN (default 80).
+- The character that borders the quotes `src/include/constants_macros.h` under
+  the constant QUOTE_BORDER (default '=').
 
 The user can change the order in which the art/quote is displayed or change the
 manner in which they are displayed in the `terminal.c` file under the
