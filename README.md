@@ -44,6 +44,7 @@ As I have prepared it, the following tools are required to build the project:
 - GNU Make
 - Glibc (Or your C compiler of choice but you will need to change compiler in
   Makefile)
+
 Once you are sure that you have these packages, you can run the following to
 build this project:
 ```
