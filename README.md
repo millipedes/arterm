@@ -9,13 +9,13 @@ Once the binary is made, it can be used by executing the binary with the first
 argument being the path to the quote text file and the second argument being the
 path to the art file.
 
-The quote file is unique in that the program can read a file with multiple quote
-and it, as currently configured, will pick one at random to display. To do
-this, each quote needs to be separated by a delimiter. This  delimiter is be
-found and set in `src/include/constants_macros.h` under the variable
-QUOTE_DELIM. Notice that the delimiter ends with a new line character (as it is
-currently set up, delimiters need to be on their own line).  As it is currently
-set up, the quotes are separated by "--\n", i.e.:
+The program can read a file with multiple quotes and will pick one at random to
+display. To work with the program, each quote needs to be separated by a
+delimiter. This delimiter is be found and set in
+`src/include/constants_macros.h` under the variable QUOTE_DELIM. Notice that
+the delimiter ends with a new line character (as it is currently set up,
+delimiters need to be on their own line).  By default the quotes are separated
+by "--\n", i.e.:
 ```
 quote 1
 --
@@ -26,18 +26,18 @@ quote 3
 --
 ```
 
-The art file can contain an ascii art piece of any height but MAX_LEN or fewer
-characters wide. This is so that everything can be properly centered
-(including quotes of few enough characters).  To change this centering width,
-change the MAX_LEN in `src/include/constants_macros.h` (note it should be one
-more than the desired number of characters as C requires the nul terminator on
-character pointers).
+The art file can contain an ascii art piece of art of any height but MAX_LEN or
+fewer characters wide. This restraint is so that everything can be properly
+centered.  To change this centering width, modify the MAX_LEN in
+`src/include/constants_macros.h` (note it should be one more than the desired
+number of characters as C requires the nul terminator on character pointers).
 
 Finally, the character that borders the quotes can be changed as well in 
 `src/include/constants_macros.h` under the QUOTE_BORDER defined constant.
 
-It is worth mentioning, the lolcat project is very neat and is good in
-combination with this program (the example picture includes the use of lolcat).
+It is worth mentioning, the [lolcat](https://github.com/busyloop/lolcat.git)
+project is very neat and is good in combination with this program (the example
+picture includes the use of lolcat with seed value 218 my favorite).
 
 # :floppy_disk: Installation
 As I have prepared it, the following tools are required to build the project:
