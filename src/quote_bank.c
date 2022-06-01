@@ -80,6 +80,12 @@ void quote_bank_dump_debug(quote_bank * qb) {
   }
 }
 
+int pick_random_quote(quote_bank * qb) {
+  time_t tim;
+  srand((unsigned) time(&tim));
+  return rand() % qb->quote_no;
+}
+
 /**
  * This function frees a quote bank
  * @param   qb - the quote bank to be freed

@@ -58,6 +58,12 @@ art * art_from_file(char * file_name) {
   return a;
 }
 
+void print_art(art * a) {
+  for(int i = 0; i < a->h; i++) {
+    printf("%s", a->art[i]);
+  }
+}
+
 void art_dump_debug(art * a) {
   printf("Art:\n");
   for(int i = 0; i < a->h; i++) {

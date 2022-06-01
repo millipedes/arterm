@@ -12,6 +12,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<time.h>
 #include"constants_macros.h"
 
 typedef struct QUOTE_BANK_T {
@@ -22,6 +23,7 @@ typedef struct QUOTE_BANK_T {
 quote_bank * init_quote_bank(void);
 quote_bank * quote_bank_from_file(char * file_name);
 void quote_bank_dump_debug(quote_bank * qb);
+int pick_random_quote(quote_bank * qb);
 void free_quote_bank(quote_bank * qb);
 
 #endif

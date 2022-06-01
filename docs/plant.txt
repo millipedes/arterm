@@ -1,9 +1,17 @@
 @startuml
 package arterm {
   class art {
+     {field} + art : char **
+     {field} + w : int
+     {field} + h : int
+    {method} + art * init_art(void)
+    {method} + art * art_from_file(char *)
+    {method} + void art_dump_debug(art *)
+    {method} + void free_art(art *)
   }
 
   class menus {
+    {method} + void width_error_menu(int)
   }
 
   class quote_bank {

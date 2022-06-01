@@ -23,6 +23,7 @@ typedef struct ART_T {
 
 art * init_art(void);
 art * art_from_file(char * file_name);
+void print_art(art * a);
 void art_dump_debug(art * a);
 void free_art(art * a);
 
