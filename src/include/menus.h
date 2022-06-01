@@ -1,3 +1,11 @@
+/**
+ * @file menus.h
+ * @brief This file contains the function definitions for menus.c
+ * @author Matthew C. Lindeman
+ * @date May 31, 2022
+ * @bug None known
+ * @todo Nothing
+ */
 #ifndef MEN_H
 #define MEN_H
 

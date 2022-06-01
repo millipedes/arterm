@@ -1,3 +1,11 @@
+/**
+ * @file quote_bank.h
+ * @brief this file contains the function definitions for quote_bank.c
+ * @author Matthew C. Lindeman
+ * @date May 31, 2022
+ * @bug None known
+ * @todo Nothing
+ */
 #ifndef QUOB_H
 #define QUOB_H
 

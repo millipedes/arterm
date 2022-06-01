@@ -22,7 +22,8 @@ art * init_art(void) {
 }
 
 /**
- * This function will make an art struct from a file path
+ * This function will make an art struct from a file path with max width of
+ * MAX_LEN
  * @param file_name - the name of the file
  * @return        a - the art struct
  */
