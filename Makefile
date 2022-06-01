@@ -27,7 +27,7 @@ memcheck:
 	valgrind $(EXEFILE) --leak-check=full --read-var-info
 
 git-update:
-	git add Makefile README.md src/ docs/
+	git add Makefile README.md src/ docs/ resources/
 	git commit -m "update commit"
 	git push origin main
 

@@ -1,0 +1,10 @@
+quote 1
+--
+quote 2
+--
+long
+quote
+number 3
+--
+quote 4
+--

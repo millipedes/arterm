@@ -1,4 +1,5 @@
 # :fire: Arterm
+[](./resources/example.png "Example Arterm")
 This project is intended to be used as a program that can print a quote and
 ascii art to the terminal. This quote and art should be stored in separate utf-8
 text files.
@@ -34,6 +35,9 @@ character pointers).
 
 Finally, the character that borders the quotes can be changed as well in 
 `src/include/constants_macros.h` under the QUOTE_BORDER defined constant.
+
+It is worth mentioning, the lolcat project is very neat and is good in
+combination with this program (the example picture includes the use of lolcat).
 
 # :floppy_disk: Installation
 As I have prepared it, the following tools are required to build the project:
