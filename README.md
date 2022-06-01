@@ -23,7 +23,7 @@ quote 2 taking up multiuple lines
 --
 quote 3
 --
-``
+```
 
 The art file can contain an ascii art piece of any height but MAX_LEN or fewer
 characters wide. This is so that everything can be properly centered
