@@ -8,6 +8,11 @@
  */
 #include"include/art.h"
 
+/**
+ * This function initializes an art struct
+ * @param N/a
+ * @return  a - the new art struct
+ */
 art * init_art(void) {
   art * a = calloc(1, sizeof(struct ART_T));
   a->art = NULL;
@@ -16,6 +21,11 @@ art * init_art(void) {
   return a;
 }
 
+/**
+ * This function will make an art struct from a file path
+ * @param file_name - the name of the file
+ * @return        a - the art struct
+ */
 art * art_from_file(char * file_name) {
   FILE * fp = fopen(file_name, "r");
   art * a = init_art();
@@ -24,10 +34,35 @@ art * art_from_file(char * file_name) {
 
   while(fgets(buf, MAX_LEN, fp)) {
     len = strnlen(buf, MAX_LEN);
-    if(a->w < (int)len) {
+    // If the art is too wide print error message and exit
+    if(a->w > MAX_LEN) {
+      width_error_menu(a->w);
+      exit(1);
     }
+    // We want to keep track of largest width
+    if(a->w < (int)len)
+      a->w = (int)len;
+
+    // Only allocate memory that we need
+    a->h++;
+    if(a->h == 1) {
+      a->art = calloc(a->h, sizeof(char *));
+    } else {
+      a->art = realloc(a->art, a->h * sizeof(char *));
+    }
+    a->art[a->h - 1] = calloc(len + 1, sizeof(char));
+    strncpy(a->art[a->h - 1], buf, len);
   }
-  return NULL;
+  fclose(fp);
+  return a;
+}
+
+void art_dump_debug(art * a) {
+  printf("Art:\n");
+  for(int i = 0; i < a->h; i++) {
+    printf("`%s`\n", a->art[i]);
+  }
+  printf("------------------------------\n");
 }
 
 void free_art(art * a) {
