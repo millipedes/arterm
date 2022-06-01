@@ -35,6 +35,11 @@ number of characters as C requires the nul terminator on character pointers).
 Finally, the character that borders the quotes can be changed as well in 
 `src/include/constants_macros.h` under the QUOTE_BORDER defined constant.
 
+The user can change the order in which the art/quote is displayed or change the
+manner in which they are displayed in the `terminal.c` file under the
+`print_terminal_art()` function (which just calls the art print function and
+then the quote print function).
+
 It is worth mentioning, the [lolcat](https://github.com/busyloop/lolcat.git)
 project is very neat and is good in combination with this program (the example
 picture includes the use of lolcat with seed value 218 my favorite).
