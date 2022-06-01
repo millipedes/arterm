@@ -27,7 +27,7 @@ quote 3
 --
 ```
 
-The art file can contain an ascii art piece of art of any height but MAX_LEN or
+The art file can contain an piece of ascii art of any height but MAX_LEN or
 fewer characters wide. This restraint is so that everything can be properly
 centered. Note it should be one more than the desired number of characters as C
 requires the nul terminator on character pointers to work with `string.h`
