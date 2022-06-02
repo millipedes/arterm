@@ -6,7 +6,7 @@
  * @bug None known
  * @todo Nothing
  */
-#include"include/quote_bank.h"
+#include "include/quote_bank.h"
 
 /**
  * This function initializes a quote bank
@@ -130,8 +130,6 @@ void print_char(char c, int qty) {
  * @return .\ - the index of the random quote
  */
 int pick_random_quote(quote_bank * qb) {
-  time_t tim;
-  srand((unsigned) time(&tim));
   return rand() % qb->quote_no;
 }
 

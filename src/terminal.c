@@ -7,7 +7,7 @@
  * @bug None known
  * @todo Nothing
  */
-#include"include/terminal.h"
+#include "include/terminal.h"
 
 /**
  * This function initializes a terminal struct
@@ -17,7 +17,7 @@
  */
 term * init_term(art * a, quote_bank * qb) {
   term * t = calloc(1, sizeof(struct TERMINAL_T));
-  t->a = a;
+  t->art = a;
   t->qb = qb;
   return t;
 }
@@ -41,8 +41,8 @@ term * terminal_from_files(char * quote_bank_fn, char * art_fn) {
  * @return N/a
  */
 void print_terminal_art(term * t) {
-  print_art(t->a);
   print_random_quote(t->qb);
+  print_art(t->art);
 }
 
 /**
@@ -52,8 +52,8 @@ void print_terminal_art(term * t) {
  */
 void free_term(term * t) {
   if(t) {
-    if(t->a)
-      free_art(t->a);
+    if(t->art)
+      free_art(t->art);
     if(t->qb)
       free_quote_bank(t->qb);
     free(t);

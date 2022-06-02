@@ -9,11 +9,11 @@
 #ifndef TER_H
 #define TER_H
 
-#include"art.h"
-#include"quote_bank.h"
+#include "art.h"
+#include "quote_bank.h"
 
 typedef struct TERMINAL_T {
-  art * a;
+  art * art;
   quote_bank * qb;
 } term;
 

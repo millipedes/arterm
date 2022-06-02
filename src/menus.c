@@ -7,7 +7,7 @@
  * @bug None known
  * @todo Nothing
  */
-#include"include/menus.h"
+#include "include/menus.h"
 
 /**
  * This function prints an error message if a given file has an art that is too

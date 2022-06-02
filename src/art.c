@@ -6,7 +6,7 @@
  * @bug None known
  * @todo Nothing
  */
-#include"include/art.h"
+#include "include/art.h"
 
 /**
  * This function initializes an art struct
@@ -16,8 +16,8 @@
 art * init_art(void) {
   art * a = calloc(1, sizeof(struct ART_T));
   a->art = NULL;
-  a->w = 0;
-  a->h = 0;
+  a->max_width = 0;
+  a->height = 0;
   return a;
 }
 
@@ -36,23 +36,23 @@ art * art_from_file(char * file_name) {
   while(fgets(buf, MAX_LEN, fp)) {
     len = strnlen(buf, MAX_LEN);
     // If the art is too wide print error message and exit
-    if(a->w > MAX_LEN) {
-      width_error_menu(a->w);
+    if(a->max_width > MAX_LEN) {
+      width_error_menu(a->max_width);
       exit(1);
     }
     // We want to keep track of largest width
-    if(a->w < (int)len)
-      a->w = (int)len;
+    if(a->max_width < (int)len)
+      a->max_width = (int)len;
 
     // Only allocate memory that we need
-    a->h++;
-    if(a->h == 1) {
-      a->art = calloc(a->h, sizeof(char *));
+    a->height++;
+    if(a->height == 1) {
+      a->art = calloc(a->height, sizeof(char *));
     } else {
-      a->art = realloc(a->art, a->h * sizeof(char *));
+      a->art = realloc(a->art, a->height * sizeof(char *));
     }
-    a->art[a->h - 1] = calloc(len + 1, sizeof(char));
-    strncpy(a->art[a->h - 1], buf, len);
+    a->art[a->height - 1] = calloc(len + 1, sizeof(char));
+    strncpy(a->art[a->height - 1], buf, len);
   }
   fclose(fp);
   return a;
@@ -65,8 +65,8 @@ art * art_from_file(char * file_name) {
  */
 void print_art(art * a) {
   int buffer = 0;
-  for(int i = 0; i < a->h; i++) {
-    buffer = (MAX_LEN - 2 - a->w) / 2;
+  for(int i = 0; i < a->height; i++) {
+    buffer = (MAX_LEN - 2 - a->max_width) / 2;
     for(int i = 0; i < buffer; i++)
       printf(" ");
     printf("%s", a->art[i]);
@@ -80,7 +80,7 @@ void print_art(art * a) {
  */
 void art_dump_debug(art * a) {
   printf("Art:\n");
-  for(int i = 0; i < a->h; i++) {
+  for(int i = 0; i < a->height; i++) {
     printf("`%s`\n", a->art[i]);
   }
   printf("------------------------------\n");
@@ -94,7 +94,7 @@ void art_dump_debug(art * a) {
 void free_art(art * a) {
   if(a) {
     if(a->art) {
-      for(int i = 0; i < a->h; i++) {
+      for(int i = 0; i < a->height; i++) {
         if(a->art[i]) {
           free(a->art[i]);
         }

@@ -9,16 +9,16 @@
 #ifndef ART_H
 #define ART_H
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include"constants_macros.h"
-#include"menus.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "constants_macros.h"
+#include "menus.h"
 
 typedef struct ART_T {
   char ** art;
-  int w; // only garenteed to be the largest width
-  int h; // height
+  int max_width; // only garenteed to be the largest width
+  int height;   // height
 } art;
 
 art * init_art(void);

@@ -9,11 +9,11 @@
 #ifndef QUOB_H
 #define QUOB_H
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<time.h>
-#include"constants_macros.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include "constants_macros.h"
 
 typedef struct QUOTE_BANK_T {
   char ** quotes;
