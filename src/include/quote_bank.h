@@ -25,6 +25,7 @@ quote_bank * quote_bank_from_file(char * file_name);
 void quote_bank_dump_debug(quote_bank * qb);
 void print_random_quote(quote_bank * qb);
 void print_char(char c, int qty);
+char pick_random_border(void);
 int pick_random_quote(quote_bank * qb);
 void free_quote_bank(quote_bank * qb);
 

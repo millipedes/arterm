@@ -90,11 +90,12 @@ void print_random_quote(quote_bank * qb) {
   int rand_index = pick_random_quote(qb);
   int buffer = 0;
   size_t len = strnlen(qb->quotes[rand_index], MAX_Q_LEN);
+  char c = pick_random_border();
   buffer = (MAX_LEN - 1 - len) / 2;
   if(buffer > 0) {
     // Boarder above
     print_char(' ', buffer);
-    print_char(QUOTE_BORDER, len);
+    print_char(c, len);
     printf("\n");
     
     // Buffer
@@ -102,14 +103,37 @@ void print_random_quote(quote_bank * qb) {
     printf("%s", qb->quotes[rand_index]);
     // Boarder below
     print_char(' ', buffer);
-    print_char(QUOTE_BORDER, len);
+    print_char(c, len);
     printf("\n");
   } else {
-    print_char(QUOTE_BORDER, MAX_LEN - 1);
+    print_char(c, MAX_LEN - 1);
     printf("\n");
     printf("%s", qb->quotes[rand_index]);
-    print_char(QUOTE_BORDER, MAX_LEN - 1);
+    print_char(c, MAX_LEN - 1);
     printf("\n");
+  }
+}
+
+/**
+ * This function picks a random character to be used for the border of quotes
+ * @param  N/a
+ * @return  .\ - the character to be used
+ */
+char pick_random_border(void) {
+  int choice = rand() % 6;
+  switch(choice) {
+    case 1:
+      return '=';
+    case 2:
+      return '-';
+    case 3:
+      return '*';
+    case 4:
+      return '>';
+    case 5:
+      return '<';
+    default:
+      return '\'';
   }
 }
 
