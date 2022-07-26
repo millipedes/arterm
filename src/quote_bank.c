@@ -120,7 +120,7 @@ void print_random_quote(quote_bank * qb) {
  * @return  .\ - the character to be used
  */
 char pick_random_border(void) {
-  int choice = rand() % 6;
+  int choice = rand() % 9;
   switch(choice) {
     case 1:
       return '=';
@@ -132,6 +132,12 @@ char pick_random_border(void) {
       return '>';
     case 5:
       return '<';
+    case 6:
+      return ':';
+    case 7:
+      return '^';
+    case 8:
+      return '\%';
     default:
       return '\'';
   }
